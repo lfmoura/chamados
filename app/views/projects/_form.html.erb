@@ -1,0 +1,13 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.input :company %>
+    <%= f.input :active %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

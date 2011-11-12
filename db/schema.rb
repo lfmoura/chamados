@@ -10,7 +10,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111112104053) do
+ActiveRecord::Schema.define(:version => 20111112133817) do
+
+  create_table "issues", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "subject"
+    t.integer  "opener_user_id"
+    t.integer  "assignee_user_id"
+    t.integer  "status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "issues", ["assignee_user_id"], :name => "index_issues_on_assignee_user_id"
+  add_index "issues", ["opener_user_id"], :name => "index_issues_on_opener_user_id"
+  add_index "issues", ["project_id"], :name => "index_issues_on_project_id"
+  add_index "issues", ["status_id"], :name => "index_issues_on_status_id"
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "company"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "active"
+  end
+
+  create_table "status", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

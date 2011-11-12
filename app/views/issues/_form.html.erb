@@ -1,0 +1,16 @@
+<%= simple_form_for(@issue) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= Project.ativos.to_sql%>
+    <%= f.association :project, :collection => Project.ativos%>
+    <%= f.input :subject %>
+    <%= f.association :opener_user %>
+    <%= f.association :assignee_user %>
+    <%= f.association :status %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

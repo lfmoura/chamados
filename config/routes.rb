@@ -1,5 +1,9 @@
 Autenticacao::Application.routes.draw do
-  resources :statuses
+  resources :issues
+
+  resources :projects
+
+  resources :status
 
   get 'dashboard' => "dashboard#index" 
 
