@@ -1,0 +1,21 @@
+# language :pt
+Funcionalidade: Autentição de Usuários
+  Para identificar os usuários
+  Como um usuário do sistema
+  Eu quero validar o usuário
+
+  Cenário: Login de usuário válido
+    Dado que existe um usuário na base com login "teste@mcfox.com.br" e senha "123456"
+    Quando eu acessar a página de login
+    E digitar "Email" "teste@mcfox.com.br"
+    E digitar "Password" "123456"
+    E clicar no botão "Sign in"
+    Então deverei ver na tela a mensagem "Welcome! You have signed up successfully."
+
+  Cenário: Login de usuário inválido
+    Dado que existe um usuário na base com login "teste@mcfox.com.br" e senha "123456"
+    Quando eu acessar a página de login
+    E digitar "Email" "teste@mcfox.com.br"
+    E digitar "Password" "abcdef"
+    E clicar no botão "Sign in"
+    Então deverei ver na tela a mensagem "Invalid email or password."
