@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111112133817) do
+ActiveRecord::Schema.define(:version => 20111126144405) do
 
   create_table "issues", :force => true do |t|
     t.integer  "project_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20111112133817) do
     t.integer  "status_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "text"
   end
 
   add_index "issues", ["assignee_user_id"], :name => "index_issues_on_assignee_user_id"
